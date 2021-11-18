@@ -30,6 +30,12 @@ if ($_POST && empty($_GET['delete'])) {
         unset($file[$del]);
         file_put_contents('lista.csv', implode("", $file));
     }
+
+    if (!empty($_GET['clear'])) {
+        $file = fopen('lista.csv', "r+");
+        ftruncate($file, 0);
+        fclose($file);
+    }
 }
 
 ?>
@@ -161,6 +167,7 @@ if ($_POST && empty($_GET['delete'])) {
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <!-- CSV -->
                     <a href="lista.csv" download="" class="btn btn-success">Scarica</a>
+                    <a href="index.php?clear=true" class="btn btn-danger">Svuota</a>
                 </div>
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
                     <!-- ELENCO -->

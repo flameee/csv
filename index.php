@@ -18,9 +18,10 @@ if ($_POST && empty($_GET['delete'])) {
     $data_contatto = $_POST['data_contatto'];
     $ruolo = $_POST['ruolo'];
 
-    $i = array("$cognome;$nome;$nascita;$comune_nascita;$sesso;$cf;$cmp;$cfscuola;$nome_scuola;$desc_scuola;$classe;$telefono;$email;$ind_domicilio;$comune_domicilio;$data_contatto;$ruolo");
+    $i = array($cognome, $nome, $nascita, $comune_nascita, $sesso, $cf, $cmp, $cfscuola, $nome_scuola, $desc_scuola, $classe, $telefono, $email, $ind_domicilio, $comune_domicilio, $data_contatto, $ruolo);
+
     $fh = fopen('lista.csv', 'a');
-    fputcsv($fh, $i);
+    fputcsv($fh, $i, ';');
     fclose($fh);
 } else {
 

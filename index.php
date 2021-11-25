@@ -23,7 +23,7 @@ if ($_POST && empty($_GET['delete'])) {
     $fh = fopen('lista.csv', 'a');
     fputcsv($fh, $i, ';');
     fclose($fh);
-} else {
+} /*else {
 
     if (!empty($_GET['delete'])) {
         $del = $_GET['delete'] - 1;
@@ -37,7 +37,7 @@ if ($_POST && empty($_GET['delete'])) {
         ftruncate($file, 0);
         fclose($file);
     }
-}
+}*/
 
 ?>
 <!doctype html>
